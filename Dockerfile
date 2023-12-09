@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl cron nano
     wget -O upx "https://github.com/evlon/cdn/raw/master/xary/upx" && chmod +x upx &&\
     wget -O temp.zip $(wget -qO- "https://api.github.com/repos/XTLS/Xray-core/releases/latest" | grep -m1 -o "https.*linux-64.*zip") &&\
     unzip temp.zip xray geoip.dat geosite.dat &&\
-    upx -3 xray &&\
+    ./upx -3 xray &&\
     mv xray v &&\
     rm -f temp.zip &&\
     chmod -v 755 v entrypoint.sh &&\
