@@ -7,7 +7,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY entrypoint.sh ./
 
 RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl cron nano xz-utils &&\
-    wget -O upx "https://github.com/evlon/cdn/raw/master/xary/upx" && chmod +x upx &&\
+    wget -O upx "https://github.com/evlon/cdn/raw/master/upx/upx-amd64" && chmod +x upx &&\
     wget -O temp.zip $(wget -qO- "https://api.github.com/repos/XTLS/Xray-core/releases/latest" | grep -m1 -o "https.*linux-64.*zip") &&\
     unzip temp.zip xray geoip.dat geosite.dat &&\
     ./upx -3 xray &&\
